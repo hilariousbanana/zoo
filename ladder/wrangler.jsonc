@@ -1,0 +1,12 @@
+{
+  // Deploy the static export (out/) as a plain static-assets Worker.
+  // Having this file present stops `wrangler deploy` from auto-converting the
+  // project to the OpenNext server adapter (which failed on a self-reference
+  // service binding). No `main` worker script = assets-only deployment.
+  "name": "zoo",
+  "compatibility_date": "2026-06-26",
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page"
+  }
+}
