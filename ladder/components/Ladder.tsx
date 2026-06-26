@@ -43,7 +43,9 @@ type Geometry = {
 
 function buildGeometry(count: number, rows: number): Geometry {
   const width = MARGIN_X * 2 + (count - 1) * COL_GAP;
-  const ladderHeight = Math.max(rows * 34, 240);
+  // Keep the ladder from being too tall/narrow so it reads well when the SVG
+  // is scaled down to fit the viewport height.
+  const ladderHeight = Math.max(rows * 22, 200);
   const topY = TOP_Y;
   const bottomY = topY + ladderHeight;
   const height = bottomY + BOTTOM_Y;
@@ -162,8 +164,7 @@ export default function Ladder({
     <svg
       ref={svgRef}
       viewBox={`0 0 ${geo.width} ${geo.height}`}
-      width="100%"
-      className="block h-auto w-full select-none touch-none"
+      className="block h-full max-h-full w-full select-none touch-none"
       preserveAspectRatio="xMidYMid meet"
       role="img"
       aria-label="사다리"

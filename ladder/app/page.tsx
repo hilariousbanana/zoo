@@ -121,12 +121,12 @@ export default function Home() {
   }, [riding]);
 
   return (
-    <main className="mx-auto flex min-h-screen w-full max-w-2xl flex-col gap-6 px-4 py-8 sm:py-12">
+    <main className="mx-auto flex h-[100dvh] w-full max-w-2xl flex-col gap-2 overflow-hidden px-4 py-3 sm:gap-3 sm:py-4">
       <header className="text-center">
-        <h1 className="bg-gradient-to-r from-emerald-300 via-sky-300 to-violet-400 bg-clip-text text-3xl font-extrabold text-transparent sm:text-4xl">
+        <h1 className="bg-gradient-to-r from-emerald-300 via-sky-300 to-violet-400 bg-clip-text text-2xl font-extrabold text-transparent sm:text-3xl">
           🪜 사다리타기
         </h1>
-        <p className="mt-2 text-sm text-gray-400">
+        <p className="mt-1 hidden text-sm text-gray-400 sm:block">
           참가자와 결과를 정하고 이름을 눌러 사다리를 타보세요!
         </p>
       </header>
@@ -222,8 +222,8 @@ export default function Home() {
         })}
       </div>
 
-      {/* the ladder */}
-      <div className="rounded-2xl border border-white/10 bg-black/20 p-2 sm:p-4">
+      {/* the ladder — flexes to fill remaining height so nothing scrolls */}
+      <div className="flex min-h-0 flex-1 items-center justify-center rounded-2xl border border-white/10 bg-black/20 p-2">
         <Ladder
           count={count}
           rungs={rungs}
