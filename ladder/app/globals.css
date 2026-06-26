@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0f0f1a;
+  --foreground: #ededed;
+}
+
+body {
+  color: var(--foreground);
+  background: radial-gradient(circle at 50% 0%, #1e1b3a 0%, #0f0f1a 60%);
+  min-height: 100vh;
+}
+
+/* Trail that is "drawn" behind a circle as it rides down the ladder.
+   Used with pathLength="1" and stroke-dasharray="1". */
+@keyframes ladder-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
